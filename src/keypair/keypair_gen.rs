@@ -33,7 +33,7 @@ impl LyreKeyPair {
 impl core::fmt::Debug for LyreKeyPair {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LyreKeyPair")
-            .field("privkey", &"R3DACT3D")
+            .field("privkey", &"REDACTED")
             .field("PUB_KEY", &self.pubkey)
             .finish()
     }
@@ -42,7 +42,7 @@ impl core::fmt::Debug for LyreKeyPair {
 impl core::fmt::Display for LyreKeyPair {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         f.debug_struct("LyreKeyPair")
-            .field("privkey", &"R3DACT3D")
+            .field("privkey", &"REDACTED")
             .field("PUB_KEY", &self.pubkey)
             .finish()
     }
@@ -52,7 +52,7 @@ impl DangerousDebugPrint for LyreKeyPair {
     fn dangerous_debug(&self) {
         println!(
             "LyreKeyPair {{ privkey: {:?}, pubkey: {:?} }}",
-            self.privkey, self.pubkey
+            self.privkey.expose_secret(), self.pubkey
         );
     }
 }
